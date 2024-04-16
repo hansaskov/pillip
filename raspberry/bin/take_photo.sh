@@ -1,35 +1,47 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Check if a directory is provided
-if [ -z "$1" ]; then
-    echo "Error: Please provide a directory path as an argument."
-    echo "Usage: $0 <directory_path>"
-    exit 1
-fi
+# Helper functions
+create_dir() {
+    mkdir -p "$1"
+}
 
-# Create the directory if it doesn't exist
-directory_path="$1"
-if [ ! -d "$directory_path" ]; then
-    mkdir -p "$directory_path"
-fi
+get_date() {
+    date +%Y-%m-%d
+}
 
-# Get the current date in the format "YYYY-MM-DD"
-current_date=$(date +%Y-%m-%d)
+get_time() {
+    date +%H%M%S_%3N
+}
 
-# Create the folder for the current date if it doesn't exist
-folder_path="$directory_path/$current_date"
-if [ ! -d "$folder_path" ]; then
-    mkdir -p "$folder_path"
-fi
+join_path() {
+    printf "%s/%s" "$1" "$2"
+}
 
-# Get the current time in the format "HHmmss_sss"
-current_time=$(date +%H%M%S_%3N)
+take_photo() {
+    rpicam-still -t 0.01 -o "$1"
+}
 
-# Construct the filename in the desired format
-filename="${current_time}.jpg"
+# Main script
+main() {
+    # Check if a directory is provided
+    if [ -z "$1" ]; then
+        echo "Error: Please provide a directory path as an argument." >&2
+        echo "Usage: $0 <directory_path>" >&2
+        exit 1
+    fi
 
-# Join the folder path and filename
-image_path="$folder_path/$filename"
+    directory_path="$1"
+    create_dir "$directory_path"
 
-# Call the rpicam-still command with the constructed path
-rpicam-still -t 0.01 -o "$image_path"
+    current_date=$(get_date)
+    folder_path=$(join_path "$directory_path" "$current_date")
+    create_dir "$folder_path"
+
+    current_time=$(get_time)
+    filename="${current_time}.jpg"
+    image_path=$(join_path "$folder_path" "$filename")
+
+    take_photo "$image_path"
+}
+
+main "$@"
