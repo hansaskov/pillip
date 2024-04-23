@@ -55,7 +55,6 @@ main() {
     image_path=$(join_path "$folder_path" "$filename")
 
     take_photo "$image_path"
-
     # Call the extract_metadata script
     extract_metadata "$image_path" "$2"
 }
