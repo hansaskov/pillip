@@ -3,7 +3,7 @@
 # Functions
 take_photo() {
     start_capture_time=$(date +%s)
-    rpicam-still -t 0.01 -o "$1"
+    rpicam-still -t 0.01 -w 640 -h 480 -o "$1"
     capture_time=$(($(date +%s) - start_capture_time))   
 }
 
