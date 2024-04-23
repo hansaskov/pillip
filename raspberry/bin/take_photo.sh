@@ -24,7 +24,7 @@ take_photo() {
 extract_metadata() {
     local image_path="$1"
     local trigger="$2"
-    local metadata_script="extract_photo_metadata.sh"
+    local metadata_script="./extract_photo_metadata.sh"
 
     if [ -f "$metadata_script" ]; then
         "$metadata_script" "$image_path" "$trigger"
