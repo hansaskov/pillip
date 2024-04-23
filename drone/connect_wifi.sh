@@ -10,7 +10,7 @@ PASSWORD="pillip15"
 sync_time() {
     echo "Syncing time with PC..."
     
-    ssh pi@10.0.0.10 "bash -s" < home/pi/pillip/raspberry/bin/sync_time.sh
+    ssh pi@10.0.0.10 "bash -s" < /home/pi/pillip/raspberry/bin/sync_time.sh
 }
 
 # Enable Wi-Fi device
