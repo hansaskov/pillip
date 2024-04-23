@@ -10,7 +10,7 @@ PASSWORD="pillip15"
 sync_time() {
     echo "Syncing time with PC..."
     
-    ssh pi@10.0.0.10 "bash -s" < home/pillip/raspberry/bin/sync_time.sh
+    ssh pi@10.0.0.10 "bash -s" < home/pi/pillip/raspberry/bin/sync_time.sh
 }
 
 # Enable Wi-Fi device
@@ -38,7 +38,7 @@ CONNECTED=$(nmcli dev status | grep -c "connected")
 if [ $CONNECTED -gt 0 ]; then
     echo "Successfully connected to Wi-Fi network '$SSID'."
     sync_time # syncs time on Pi with PC
-    
+
 else
     echo "Error: Failed to connect to Wi-Fi network '$SSID'."
     exit 1
