@@ -30,7 +30,7 @@ def on_message(client, userdata, msg,serial:Serial):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "pico driver")
-    parser.add_argument("-S","--serial",type=str,default="/dev/pico")
+    parser.add_argument("-S","--serial",type=str,default="/dev/pico_01")
     parser.add_argument("-b","--band",type=int,default=115200)
     parser.add_argument("-u","--url",type=str,default="10.0.0.10")
     parser.add_argument("-P","--port",type=int,default=1883)
