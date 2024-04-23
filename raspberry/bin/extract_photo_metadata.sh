@@ -11,23 +11,23 @@ get_directory() {
 }
 
 get_create_date() {
-  exiftool -CreateDate -d "%Y-%m-%d %H:%M:%S.%%%C%+03c" "$1"
+  exiftool -CreateDate -s3 -d  "%Y-%m-%d %H:%M:%S.%%%C%+03c" "$1"
 }
 
 get_create_seconds_epoch() {
-  exiftool -CreateDate -d "%s.%C" "$1"
+  exiftool -CreateDate -s3 -d "%s.%C" "$1"
 }
 
 get_subject_distance() {
-  exiftool -SubjectDistance -n "$1"
+  exiftool -SubjectDistance -n -s3 "$1"
 }
 
 get_exposure_time() {
-  exiftool -ExposureTime "$1"
+  exiftool -ExposureTime -n -s3 "$1"
 }
 
 get_iso() {
-  exiftool -ISO "$1"
+  exiftool -ISO -n -s3 "$1"
 }
 
 create_json_metadata() {
