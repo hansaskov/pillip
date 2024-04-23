@@ -1,6 +1,7 @@
 from serial import Serial
 import paho.mqtt.client as mqtt
 from functools import partial
+import argparse
 
 def driver(pico_port:str,pico_band:int,mqtt_url:str,mqtt_port:int,mqtt_username:str = "",mqtt_password:str = "",mqtt_read_topic = "/pico_read",mqtt_write_topic = "/pico_write",):
     ser = Serial(pico_port,pico_band)
@@ -21,7 +22,6 @@ def on_connect(client:mqtt.Client, userdata, flags, reason_code, properties,topi
     client.subscribe(topic)
 
 def on_message(client, userdata, msg,serial:Serial):
-    print(msg.topic+" "+str(msg.payload))
     serial.write(msg.payload)
 
 
@@ -29,4 +29,14 @@ def on_message(client, userdata, msg,serial:Serial):
 
 
 if __name__ == '__main__':
-    driver("/dev/ttyACM0",115200,"10.0.0.10",1883,"oliverersej","oliverersej")
+    parser = argparse.ArgumentParser(description = "pico driver")
+    parser.add_argument("-S","--serial",type=str,default="/dev/pico")
+    parser.add_argument("-b","--band",type=int,default=115200)
+    parser.add_argument("-u","--url",type=str,default="10.0.0.10")
+    parser.add_argument("-P","--port",type=int,default=1883)
+    parser.add_argument("-U","--username",type=str,default="")
+    parser.add_argument("-W","--password",type=str,default="")
+    parser.add_argument("-tr","--topic-read",type=str,default="/pico_read" )
+    parser.add_argument("-tw","--topic-write",type=str,default="/pico_write" )
+    args = parser.parse_args()
+    driver(args.serial,args.band,args.url,args.port,args.username,args.password,args.topic_read,args.topic_write)
