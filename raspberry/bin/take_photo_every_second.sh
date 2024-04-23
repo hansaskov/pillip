@@ -4,13 +4,12 @@
 take_photo() {
     start_capture_time=$(date +%s)
     rpicam-still -t 0.01 -o "$1"
-    capture_time=$(($(date +%s) - start_capture_time))
-    echo "Photo taken and saved to $1"
+    capture_time=$(($(date +%s) - start_capture_time))   
 }
 
 save_photo() {
     ./save_photos.sh "$1"
-    echo "Photo saved to archive"
+    echo "Photo taken and saved to $1"
 }
 
 save_image_every_5min() {
@@ -34,7 +33,6 @@ mkdir -p "$outdir"
 img1="$outdir/img1.jpg"
 img2="$outdir/img2.jpg"
 
-counter=0
 start_time=$(date +%s)
 while true; do
     # Check if img1.jpg exists
@@ -44,9 +42,6 @@ while true; do
     fi
 
     take_photo "$img1"
-
-    # Increment counter
-    ((counter++))
 
     # Calculate the actual time elapsed since the last iteration
     elapsed_time=$(($(date +%s) - start_time))
