@@ -20,6 +20,8 @@ while true; do
     # Take a new image and save it as img1.jpg
     rpicam-still -t 0.01 -o "$img1"
 
+    ls $outdir
+
     # Wait for 1 second
     sleep 1
 done
