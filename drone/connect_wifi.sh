@@ -6,6 +6,18 @@ SSID="EMLI-TEAM-15"
 # Wi-Fi Password
 PASSWORD="pillip15"
 
+# Sync time with PC using NTP
+sync_time() {
+    echo "Syncing time with PC..."
+    ntpdate -q $ip_address
+
+    if [ $? -eq 0 ]; then
+        echo "Time synchronization successful."
+    else
+        echo "Error: Time synchronization failed."
+    fi
+}
+
 # Enable Wi-Fi device
 nmcli radio wifi on
 
@@ -30,6 +42,11 @@ CONNECTED=$(nmcli dev status | grep -c "connected")
 
 if [ $CONNECTED -gt 0 ]; then
     echo "Successfully connected to Wi-Fi network '$SSID'."
+    
+    # Drone (PC) IP
+    ip_address=$(ifconfig | grep 'inet ' | awk '{print $2}' | head -n 1) #if inet does not find the ip in ifconig change to correct line name (maybe wlan0?)
+
+    sync_time # syncs time on Pi with PC
 else
     echo "Error: Failed to connect to Wi-Fi network '$SSID'."
     exit 1
