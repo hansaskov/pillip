@@ -40,7 +40,7 @@ while true; do
     fi
 
     # Wait for the remaining time to reach 1 second
-    remaining_time=$(1 - elapsed_time)
+    remaining_time=$((1 - elapsed_time))
     if [ $remaining_time -gt 0 ]; then
         sleep $remaining_time
     fi
