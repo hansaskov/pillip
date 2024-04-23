@@ -1,12 +1,36 @@
 #!/bin/bash
 
-# Set the output directory
-outdir=~/tmp/photos
+# Functions
+take_photo() {
+    start_capture_time=$(date +%s)
+    rpicam-still -t 0.01 -o "$1"
+    capture_time=$(($(date +%s) - start_capture_time))
+    echo "Photo taken and saved to $1"
+}
 
-# Create the output directory if it doesn't exist
+save_photo() {
+    ./save_photos.sh "$1"
+    echo "Photo saved to archive"
+}
+
+save_image_every_5min() {
+    if [ $((elapsed_time)) -ge 300 ]; then
+        save_photo "$img1"
+        start_time=$(date +%s)
+    fi
+}
+
+wait_for_next_second() {
+    remaining_time=$((1 - (elapsed_time % 1)))
+    if [ $remaining_time -gt 0 ]; then
+        sleep $remaining_time
+    fi
+}
+
+# Main script
+outdir=~/tmp/photos
 mkdir -p "$outdir"
 
-# Define the image filenames
 img1="$outdir/img1.jpg"
 img2="$outdir/img2.jpg"
 
@@ -19,29 +43,14 @@ while true; do
         mv "$img1" "$img2"
     fi
 
-    # Take a new image and save it as img1.jpg
-    start_capture_time=$(date +%s)
-    rpicam-still -t 0.01 -o "$img1"
-    capture_time=$(($(date +%s) - start_capture_time))
-
-    ls $outdir
+    take_photo "$img1"
 
     # Increment counter
     ((counter++))
 
     # Calculate the actual time elapsed since the last iteration
-    elapsed_time=$(($(date +%s) - start_time - capture_time))
+    elapsed_time=$(($(date +%s) - start_time))
 
-    # Save image every 5 minutes (300 seconds)
-    if [ $((elapsed_time)) -ge 300 ]; then
-        # Call save_photos.sh script
-        ./save_photos.sh "$img1"
-        start_time=$(date +%s)
-    fi
-
-    # Wait for the remaining time to reach 1 second
-    remaining_time=$((1 - elapsed_time))
-    if [ $remaining_time -gt 0 ]; then
-        sleep $remaining_time
-    fi
+    save_image_every_5min
+    wait_for_next_second
 done
