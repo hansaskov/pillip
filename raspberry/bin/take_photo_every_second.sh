@@ -45,7 +45,7 @@ while true; do
 
     # Calculate the actual time elapsed since the last iteration
     elapsed_time=$(($(date +%s) - start_time))
-
+    echo $elapsed_time
     save_image_every_5min
     wait_for_next_second
 done
