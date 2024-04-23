@@ -21,7 +21,20 @@ take_photo() {
     rpicam-still -t 0.01 -o "$1"
 }
 
+extract_metadata() {
+    local image_path="$1"
+    local trigger="$2"
+    local metadata_script="extract_photo_metadata.sh"
+
+    if [ -f "$metadata_script" ]; then
+        "$metadata_script" "$image_path" "$trigger"
+    else
+        echo "Error: $metadata_script not found." >&2
+    fi
+}
+
 # Main script
+
 main() {
     # Check if a directory is provided
     if [ -z "$1" ]; then
@@ -42,6 +55,9 @@ main() {
     image_path=$(join_path "$folder_path" "$filename")
 
     take_photo "$image_path"
+
+    # Call the extract_metadata script
+    extract_metadata "$image_path" "$2"
 }
 
 main "$@"
