@@ -13,11 +13,6 @@ img2="$outdir/img2.jpg"
 while true; do
     # Check if img1.jpg exists
     if [ -e "$img1" ]; then
-        # Check if img2.jpg exists
-        if [ -e "$img2" ]; then
-            # Delete img2.jpg
-            rm "$img2"
-        fi
         # Rename img1.jpg to img2.jpg
         mv "$img1" "$img2"
     fi
