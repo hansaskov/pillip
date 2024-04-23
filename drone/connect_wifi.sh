@@ -6,13 +6,18 @@ SSID="EMLI-TEAM-15"
 # Wi-Fi Password
 PASSWORD="pillip15"
 
+# get user
+USER=$(whoami)
+
 # Sync time with drone
 sync_time() {
     echo "Syncing time with PC..."
     # PC's IP address
     ip_address=$(ifconfig | grep 'inet ' | awk '{print $2}' | head -n 1) #if inet does not find the ip in ifconig change to correct line name (maybe wlan0?)
 
-    ssh pi@10.0.0.10 "bash -s" /home/pi/pillip/raspberry/bin/sync_time.sh $ip_address
+    date=$(ssh $USER@$ip_address date "+%Y-%m-%d %H:%M:%S")
+
+    ssh pi@10.0.0.10 "bash -s" /home/pi/pillip/raspberry/bin/sync_time.sh $date
 }
 
 # Enable Wi-Fi device
