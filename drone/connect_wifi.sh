@@ -9,8 +9,10 @@ PASSWORD="pillip15"
 # Sync time with drone
 sync_time() {
     echo "Syncing time with PC..."
-    
-    ssh pi@10.0.0.10 "bash -s" < /home/pi/pillip/raspberry/bin/sync_time.sh
+    # PC's IP address
+    ip_address=$(ifconfig | grep 'inet ' | awk '{print $2}' | head -n 1) #if inet does not find the ip in ifconig change to correct line name (maybe wlan0?)
+
+    ssh pi@10.0.0.10 "bash -s" /home/pi/pillip/raspberry/bin/sync_time.sh $ip_address
 }
 
 # Enable Wi-Fi device
