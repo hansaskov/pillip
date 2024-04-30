@@ -41,6 +41,8 @@ main() {
 
     # Move the image to the new location
     cp "$image_path" "$new_image_path"
+
+    echo "$new_image_path"
 }
 
 main "$@"
