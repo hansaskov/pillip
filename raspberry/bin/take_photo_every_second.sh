@@ -50,6 +50,7 @@ save_image_every_interval() {
     local elapsed_time=$1
     if [ $elapsed_time -ge $((SAVE_INTERVAL_MINUTES * SECONDS_PER_MINUTE)) ]; then
         save_photo "$img1"
+        extract_metadata "$new_image_path" "Time"
         start_time=$(date +%s)
     fi
 }
