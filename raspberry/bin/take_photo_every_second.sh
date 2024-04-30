@@ -40,7 +40,7 @@ check_motion() {
     if [[ "$motion_output" == "Motion detected" ]]; then
         echo "Motion detected, saving image"
         save_photo "$img1"
-        extract_metadata "$new_image_path" "motion"
+        extract_metadata "$new_image_path" "Motion"
     else
         echo "No motion, not saving image"
     fi
