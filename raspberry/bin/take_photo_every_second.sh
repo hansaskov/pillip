@@ -16,7 +16,7 @@ take_photo() {
 
 save_photo() {
     local image_path="$1"
-    new_image_path=$("./save_photos.sh" "$image_path")
+    new_image_path=$("./save_photo.sh" "$image_path")
     echo "Photo taken and saved to $new_image_path"
 }
 
