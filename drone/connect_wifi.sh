@@ -18,10 +18,46 @@ sync_time() {
 
     date=$(date "+%Y-%m-%d %H:%M:%S")
     echo $date
-    #ssh-copy-id pi@10.0.0.10
     
     ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "~/pillip/raspberry/bin/sync_time.sh $date"
+}
+
+check_for_photos() {
+    # Define the path of the folder
+    folderDrone="../../photos"
+
+    jsonData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos | grep -i json") # json from camera
+    photoData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos | grep -i jpg") # photos from camera
+
+    if [ ! -d "$folderDrone" ]; then
+        echo "Error: Folder Drone does not exist."
+        exit 1
+    fi
+
     
+    # Loop through each file in camera
+    while IFS= read -r photoPi; do
+        # Extract the filename without the path
+        photoName=$(basename "$photoPi")
+        
+        # Check if the file exists in folder2
+        if [ ! -e "$folderDrone/$photoName" ]; then
+            # Move the file from folder Pi to folder Drone
+            scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$photoPi" "$folderDrone"
+            echo "Copied $photoName to $folderDrone"
+        fi
+    done <<< "$photoData"
+
+    while IFS= read -r jsonPi; do
+        jsonName=$(basename "$jsonPi")
+
+        if [ ! -e "$folderDrone/$jsonName" ]; then
+            # Move the file from folder Pi to folder Drone
+            scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$jsonPi" "$folderDrone"
+            echo "Copied $jsoName to $folderDrone"
+        fi
+
+    done <<< "$jsonData"
 }
 
 # Enable Wi-Fi device
@@ -48,7 +84,8 @@ CONNECTED=$(nmcli dev status | grep -c "connected")
 
 if [ $CONNECTED -gt 0 ]; then
     echo "Successfully connected to Wi-Fi network '$SSID'."
-    sync_time # syncs time on Pi with PC
+    #sync_time # syncs time on Pi with PC
+    check_for_photos
 
 else
     echo "Error: Failed to connect to Wi-Fi network '$SSID'."
