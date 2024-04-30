@@ -16,7 +16,7 @@ take_photo() {
 
 save_photo() {
     local image_path="$1"
-    new_image_path=$("./save_photos.sh" "$image_path")
+    new_image_path=$("./save_photo.sh" "$image_path")
     echo "Photo taken and saved to $new_image_path"
 }
 
@@ -40,7 +40,7 @@ check_motion() {
     if [[ "$motion_output" == "Motion detected" ]]; then
         echo "Motion detected, saving image"
         save_photo "$img1"
-        extract_metadata "$new_image_path" "motion"
+        extract_metadata "$new_image_path" "Motion"
     else
         echo "No motion, not saving image"
     fi
@@ -50,6 +50,7 @@ save_image_every_interval() {
     local elapsed_time=$1
     if [ $elapsed_time -ge $((SAVE_INTERVAL_MINUTES * SECONDS_PER_MINUTE)) ]; then
         save_photo "$img1"
+        extract_metadata "$new_image_path" "Time"
         start_time=$(date +%s)
     fi
 }

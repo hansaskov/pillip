@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from serial import Serial
 import paho.mqtt.client as mqtt
 from functools import partial
@@ -5,11 +6,10 @@ import argparse
 
 def driver(pico_port:str,pico_band:int,mqtt_url:str,mqtt_port:int,mqtt_username:str = "",mqtt_password:str = "",mqtt_read_topic = "/pico_read",mqtt_write_topic = "/pico_write",):
     ser = Serial(pico_port,pico_band)
-    mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+    mqttc = mqtt.Client()
     mqttc.on_connect = partial(on_connect,topic=mqtt_read_topic)
     mqttc.on_message = partial(on_message,serial=ser)
-    mqttc.username = mqtt_username
-    mqttc.password = mqtt_password
+    mqttc.username_pw_set(mqtt_username,mqtt_password)
     mqttc.connect(mqtt_url, mqtt_port, 60)
     mqttc.loop_start()
     while True:
@@ -17,7 +17,7 @@ def driver(pico_port:str,pico_band:int,mqtt_url:str,mqtt_port:int,mqtt_username:
         # print(data)
         mqttc.publish(mqtt_write_topic,data)
 
-def on_connect(client:mqtt.Client, userdata, flags, reason_code, properties,topic):
+def on_connect(client:mqtt.Client, userdata, flags, reason_code,topic):
     print(f"Connected with result code {reason_code}")
     client.subscribe(topic)
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument("-P","--port",type=int,default=1883)
     parser.add_argument("-U","--username",type=str,default="")
     parser.add_argument("-W","--password",type=str,default="")
-    parser.add_argument("-tr","--topic-read",type=str,default="/pico_read" )
-    parser.add_argument("-tw","--topic-write",type=str,default="/pico_write" )
+    parser.add_argument("-tr","--topic-read",type=str,default="pico_read" )
+    parser.add_argument("-tw","--topic-write",type=str,default="pico_write" )
     args = parser.parse_args()
     driver(args.serial,args.band,args.url,args.port,args.username,args.password,args.topic_read,args.topic_write)
