@@ -1,0 +1,17 @@
+
+
+.grid-fluid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-fluid img {
+    max-width: 100%;
+    border-radius: 8px 4px 8px 4px;
+    cursor: pointer;
+  }
+  
+  .grid-fluid img:hover {
+    filter: brightness(70%); /* Dim the image on hover */
+  }
