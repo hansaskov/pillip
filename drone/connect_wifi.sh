@@ -21,6 +21,7 @@ sync_time() {
     #ssh-copy-id pi@10.0.0.10
     
     ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "~/pillip/raspberry/bin/sync_time.sh $date"
+    
 }
 
 # Enable Wi-Fi device
