@@ -1,10 +1,18 @@
 #!/bin/bash
 
+# Constants
+PHOTO_WIDTH=1152
+PHOTO_HEIGHT=648
+PHOTO_DELAY=0.01  # seconds
+SECONDS_PER_MINUTE=60
+SAVE_INTERVAL_MINUTES=5
+
 # Functions
+
 take_photo() {
     start_capture_time=$(date +%s)
-    rpicam-still -t 0.01 --width 1152 --height 648 -o "$1"
-    capture_time=$(($(date +%s) - start_capture_time))   
+    rpicam-still -t "$PHOTO_DELAY" --width "$PHOTO_WIDTH" --height "$PHOTO_HEIGHT" -o "$1"
+    capture_time=$(($(date +%s) - start_capture_time))
 }
 
 save_photo() {
@@ -12,28 +20,38 @@ save_photo() {
     echo "Photo taken and saved to $1"
 }
 
-save_image_every_5min() {
-    if [ $((elapsed_time)) -ge 300 ]; then
+check_motion() {
+    python ../py/motion.py "$img2" "$img1"
+    if [ $? -eq 0 ]; then
+        echo "No motion"
+    else
+        echo "Motion detected"
+        save_photo "Motion"
+    fi
+}
+
+save_image_every_interval() {
+    if [ $((elapsed_time)) -ge $((SAVE_INTERVAL_MINUTES * SECONDS_PER_MINUTE)) ]; then
         save_photo "$img1"
         start_time=$(date +%s)
     fi
 }
 
-wait_for_next_second() {
-    remaining_time=$((1 - (elapsed_time % 1)))
+wait_for_next_seconds() {
+    remaining_time=$((${1} - (elapsed_time % ${1})))
     if [ $remaining_time -gt 0 ]; then
         sleep $remaining_time
     fi
 }
 
 # Main script
+
 outdir=~/tmp/photos
 mkdir -p "$outdir"
-
 img1="$outdir/img1.jpg"
 img2="$outdir/img2.jpg"
-
 start_time=$(date +%s)
+
 while true; do
     # Check if img1.jpg exists
     if [ -e "$img1" ]; then
@@ -46,6 +64,10 @@ while true; do
     # Calculate the actual time elapsed since the last iteration
     elapsed_time=$(($(date +%s) - start_time))
     echo $elapsed_time
-    save_image_every_5min
-    wait_for_next_second
+
+    check_motion
+
+    save_image_every_interval
+
+    wait_for_next_seconds 3
 done
