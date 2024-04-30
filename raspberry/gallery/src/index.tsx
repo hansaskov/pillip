@@ -74,10 +74,10 @@ export const PhotoConfigTable = ({ config }: { config: PhotoConfig }) => {
     </>
 }
 
-export const Photo = ({ config }: { config: PhotoConfig }) => {
+export const Photo = ({ config, date }: { config: PhotoConfig, date: string }) => {
     return (
         <>
-            <img src={config.fileName} onclick="this.nextElementSibling.showModal()" />
+            <img src={`${PhotosPrefix}/${date}/${config.fileName}`} onclick="this.nextElementSibling.showModal()" />
             <dialog>
                 <article>
                     <header>
@@ -93,13 +93,14 @@ export const Photo = ({ config }: { config: PhotoConfig }) => {
     );
 };
 
-export const PhotosFolder = "~/photos"
+export const PhotosFolder = "/home/hansiboy/Desktop/code/pillip/raspberry/gallery/photos"
+export const PhotosPrefix = "/photos"
 
 new Elysia()
     .use(staticPlugin())
     .use(staticPlugin({
         assets: PhotosFolder,
-        prefix: "/photos"
+        prefix: PhotosPrefix
     }))
     .use(html())
     .get('/favicon.ico', () => Bun.file(`public/favicon.ico`))
@@ -114,7 +115,7 @@ new Elysia()
                         <div class="grid-fluid">
                             {configs.map((config) => (
                                 <>
-                                    <Photo config={config} />
+                                    <Photo config={config} date={date} />
                                 </>
                             ))}
                         </div>
@@ -124,4 +125,4 @@ new Elysia()
             </BaseHtml>
         );
     })
-    .listen(5432)
+    .listen(5433)
