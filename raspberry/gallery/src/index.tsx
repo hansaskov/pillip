@@ -93,7 +93,7 @@ export const Photo = ({ config, date }: { config: PhotoConfig, date: string }) =
     );
 };
 
-export const PhotosFolder = "/home/hansiboy/Desktop/code/pillip/raspberry/gallery/photos"
+export const PhotosFolder = "/home/pi/photos"
 export const PhotosPrefix = "/photos"
 
 new Elysia()
