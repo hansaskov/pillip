@@ -8,6 +8,7 @@ PASSWORD="pillip15"
 
 # get user
 USER=$(whoami)
+echo "Current user: $USER"
 
 # Sync time with drone
 sync_time() {
@@ -15,9 +16,11 @@ sync_time() {
     # PC's IP address
     ip_address=$(ifconfig | grep 'inet ' | awk '{print $2}' | head -n 1) #if inet does not find the ip in ifconig change to correct line name (maybe wlan0?)
 
-    date=$(ssh $USER@$ip_address date "+%Y-%m-%d %H:%M:%S")
-
-    ssh pi@10.0.0.10 "bash -s" /home/pi/pillip/raspberry/bin/sync_time.sh $date
+    date=$(date "+%Y-%m-%d %H:%M:%S")
+    echo $date
+    #ssh-copy-id pi@10.0.0.10
+    
+    ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "~/pillip/raspberry/bin/sync_time.sh $date"
 }
 
 # Enable Wi-Fi device
