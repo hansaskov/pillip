@@ -3,12 +3,11 @@
 # Constants
 PHOTO_WIDTH=1152
 PHOTO_HEIGHT=648
-PHOTO_DELAY=0.01  # seconds
+PHOTO_DELAY=0.01 # seconds
 SECONDS_PER_MINUTE=60
 SAVE_INTERVAL_MINUTES=5
 
 # Functions
-
 take_photo() {
     start_capture_time=$(date +%s)
     rpicam-still -t "$PHOTO_DELAY" --width "$PHOTO_WIDTH" --height "$PHOTO_HEIGHT" -o "$1"
@@ -16,22 +15,40 @@ take_photo() {
 }
 
 save_photo() {
-    ./save_photos.sh "$1"
-    echo "Photo taken and saved to $1"
+    local image_path="$1"
+    new_image_path=$("./save_photos.sh" "$image_path")
+    echo "Photo taken and saved to $new_image_path"
+}
+
+extract_metadata() {
+    local image_path="$1"
+    local trigger="$2"
+    local metadata_script="./extract_photo_metadata.sh"
+
+    if [ -f "$metadata_script" ]; then
+        "$metadata_script" "$image_path" "$trigger"
+    else
+        echo "Error: $metadata_script not found." >&2
+    fi
 }
 
 check_motion() {
+    local img1="$1"
+    local img2="$2"
     motion_output=$(python ../py/motion.py "$img2" "$img1")
-    if [[ "$motion_output" == *"Motion detected"* ]]; then
+
+    if [[ "$motion_output" == "Motion detected" ]]; then
         echo "Motion detected, saving image"
-        save_photo "Motion"
+        save_photo "$img1"
+        extract_metadata "$new_image_path" "motion"
     else
         echo "No motion, not saving image"
     fi
 }
 
 save_image_every_interval() {
-    if [ $((elapsed_time)) -ge $((SAVE_INTERVAL_MINUTES * SECONDS_PER_MINUTE)) ]; then
+    local elapsed_time=$1
+    if [ $elapsed_time -ge $((SAVE_INTERVAL_MINUTES * SECONDS_PER_MINUTE)) ]; then
         save_photo "$img1"
         start_time=$(date +%s)
     fi
@@ -45,7 +62,6 @@ wait_for_next_seconds() {
 }
 
 # Main script
-
 outdir=~/tmp/photos
 mkdir -p "$outdir"
 img1="$outdir/img1.jpg"
@@ -65,9 +81,7 @@ while true; do
     elapsed_time=$(($(date +%s) - start_time))
     echo $elapsed_time
 
-    check_motion
-
-    save_image_every_interval
-
+    check_motion "$img1" "$img2"
+    save_image_every_interval "$elapsed_time"
     wait_for_next_seconds 3
 done
