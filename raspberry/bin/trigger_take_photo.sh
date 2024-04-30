@@ -16,7 +16,7 @@ MQTT_TOPIC="oliverersej/trigger"
 mosquitto_sub -t "$MQTT_TOPIC" -h "$MQTT_SERVER" -p "$MQTT_PORT" -u "$MQTT_USERNAME" -P "$MQTT_KEY"| while read -r line; do
     if [ "$line" = "1" ]; then
         echo "an animal has stepped on the trigger"
-        ./take_photo.sh ~/photos External
+        ./take_photo.sh "~/photos" "External"
         #call take_photo.sh?
         # do something
     fi
