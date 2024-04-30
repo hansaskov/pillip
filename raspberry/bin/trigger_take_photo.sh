@@ -2,10 +2,14 @@
 
 
 # Set the MQTT server hostname or IP address and the topic to subscribe to
-MQTT_SERVER="192.168.10.1"
-MQTT_TOPIC="/trigger"
 
-# Connect to the MQTT server and subscribe to the topic
+MQTT_SERVER="localhost"
+MQTT_SERVERPORT=1883
+MQTT_USERNAME="oliverersej"
+MQTT_KEY="oliverersej"
+MQTT_TOPIC="oliverersej/trigger"
+
+# Connect to the MQTT server and subscribe to the topic?
 mosquitto_sub -h $MQTT_SERVER -t $MQTT_TOPIC
 
 
@@ -13,7 +17,7 @@ mosquitto_sub -h $MQTT_SERVER -t $MQTT_TOPIC
 mosquitto_sub -t "$MQTT_TOPIC" | while read -r line; do
     if [ "$line" = "1" ]; then
         echo "an animal has stepped on the trigger"
-        take_photo.sh ~/photos External
+        ./take_photo.sh ~/photos External
         #call take_photo.sh?
         # do something
     fi
