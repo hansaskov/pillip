@@ -3,19 +3,13 @@ import { html } from '@elysiajs/html'
 import { staticPlugin } from '@elysiajs/static'
 import { PhotoConfig, groupPhotoConfigsByDate, readPhotosFromPublicDirectory } from './photos';
 
-export const staticAssetsFolder = 'static';
-console.log(staticAssetsFolder)
-
-
-
-
 export const BaseHtml = ({ children }: { children: undefined | {} }) => (
     <html lang="en">
         <head>
             <meta charset='utf-8' />
             <meta name="color-scheme" content="light dark" />
-            <link rel="stylesheet" href={`${staticAssetsFolder}/css/pico.slate.min.css`} />
-            <link rel="stylesheet" href={`${staticAssetsFolder}/css/main.css`} />
+            <link rel="stylesheet" href="public/css/pico.slate.min.css" />
+            <link rel="stylesheet" href="public/css/main.css" />
             <title>Hello World</title>
         </head>
         <body>
@@ -99,16 +93,18 @@ export const Photo = ({ config }: { config: PhotoConfig }) => {
     );
 };
 
+export const PhotosFolder = "~/photos"
+
 new Elysia()
+    .use(staticPlugin())
     .use(staticPlugin({
-        assets: staticAssetsFolder,
-        prefix: `/${staticAssetsFolder}`
-        
+        assets: PhotosFolder,
+        prefix: "/photos"
     }))
     .use(html())
-    .get('/favicon.ico', () => Bun.file(`${staticAssetsFolder}/favicon.ico`))
+    .get('/favicon.ico', () => Bun.file(`public/favicon.ico`))
     .get('/', async () => {
-        const photoConfigs = await readPhotosFromPublicDirectory(`${staticAssetsFolder}/photos/`);
+        const photoConfigs = await readPhotosFromPublicDirectory(PhotosFolder);
         const groupedPhotoConfigs = groupPhotoConfigsByDate(photoConfigs);
         return (
             <BaseHtml>
