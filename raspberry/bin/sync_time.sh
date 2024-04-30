@@ -11,7 +11,7 @@ echo $date
 # Set time on Raspberry Pi
 
 echo "Setting time on Raspberry Pi..."
-#sudo date --set="$date"
+sudo date --set="$date"
 
 
 
