@@ -21,12 +21,12 @@ save_photo() {
 }
 
 check_motion() {
-    python ../py/motion.py "$img2" "$img1"
-    if [ $? -eq 0 ]; then
-        echo "No motion, not saving image"
-    else
+    motion_output=$(python ../py/motion.py "$img2" "$img1")
+    if [[ "$motion_output" == *"Motion detected"* ]]; then
         echo "Motion detected, saving image"
         save_photo "Motion"
+    else
+        echo "No motion, not saving image"
     fi
 }
 
