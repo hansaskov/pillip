@@ -47,7 +47,7 @@ async function readPhotoConfig(filePath: string) {
 
 }
 
-export async function readPhotosFromPublicDirectory(directory = "./public/photos/") {
+export async function readPhotosFromPublicDirectory(directory: string ) {
 
     const files = await readdir(directory, { recursive: true });
 
