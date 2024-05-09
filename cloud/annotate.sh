@@ -42,8 +42,6 @@ encoded_image=$(base64 -w 0 "$temp_file")
 # Prepare the request payload
 payload="{\"model\": \"$model_name\", \"prompt\": \"What is in this picture?\",  \"images\": [\"$encoded_image\"],  \"stream\": false}"
 
-echo $payload
-
 # Call the OllaMa API with the base64-encoded image as a file
 response=$(curl -s -X POST -d "$payload"  $ollama_hostname/api/generate)
 
