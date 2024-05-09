@@ -1,6 +1,5 @@
 #!/bin/bash
 
-setpriv --reuid nxquadsat --regid nxquadsat --init-groups ~/pillip/run_wildcam.sh &
+setpriv --reuid nxquadsat --regid nxquadsat --init-groups ~/pillip/raspberry/run_wildcam.sh &
 PID=$!
-
 wait=$PID
