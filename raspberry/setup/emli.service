@@ -1,0 +1,11 @@
+[Unit]
+Description=wildcame stuf
+After=mosquitto.service
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/emli.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
