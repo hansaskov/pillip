@@ -18,7 +18,7 @@ if [ -d "$dir" ]; then
         output=$(./annotate.sh ${file:0:-5}.jpg llava:13b)
         echo $output
         #use the bash script annotate.sh and take the output and save in the json file in a new key called annotation?
-        newline="{\"Annotation\":{\"Source\": \"llama:13b\", \"Test\": \"$output\"}}"
+        newline='{"Annotation":{"Source": "llama:13b", "Test": "$output"}}'
         
         new_content=$(jq ". += $newline" <<< cat $file)
         echo "$new_content" > "$file"
