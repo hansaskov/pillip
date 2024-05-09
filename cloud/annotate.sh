@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ollama_hostname=http://192.168.0.48:11434
+
 # Check if the required arguments are provided
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <image_file> <model_name>"
@@ -41,7 +43,7 @@ encoded_image=$(base64 -w 0 "$temp_file")
 payload="{\"model\": \"$model_name\", \"prompt\": \"What is in this picture?\", \"stream\": false}"
 
 # Call the OllaMa API with the base64-encoded image as a file
-response=$(curl -s -X POST -d "$payload" --data-binary "@$temp_file;base64" http://192.168.0.48:11434/api/generate)
+response=$(curl -s -X POST -d "$payload" --data-binary "@$temp_file;base64" $ollama_hostname/api/generate)
 
 # Extract the response field from the JSON output
 api_response=$(echo "$response" | jq -r '.response')
