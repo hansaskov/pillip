@@ -1,9 +1,13 @@
 {
-    "File Name": "123311_966.jpg",
-    "Create Date": "2024-05-09 12:33:09+01:00",
-    "Create Seconds Epoch": 1715254389.20,
-    "Trigger": "Time",
-    "Subject Distance": 0.630517024,
-    "Exposure Time": "1/318",
-    "ISO": 112
+  "File Name": "123311_966.jpg",
+  "Create Date": "2024-05-09 12:33:09+01:00",
+  "Create Seconds Epoch": 1715254389.2,
+  "Trigger": "Time",
+  "Subject Distance": 0.630517024,
+  "Exposure Time": "1/318",
+  "ISO": 112,
+  "Annotation": {
+    "Source": "llama:13b",
+    "Test": "$output"
+  }
 }
