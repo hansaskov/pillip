@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# Check if the required arguments are provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <wireless_name>, example wlan0"
+    exit 1
+fi
+
 # Path to the SQLite database file
 DB_FILE="wifi_data.db"
+wireless="$1"
 
 # Create the database and table if they don't exist
 sqlite3 "$DB_FILE" "CREATE TABLE IF NOT EXISTS wifi_data (
@@ -11,7 +18,7 @@ sqlite3 "$DB_FILE" "CREATE TABLE IF NOT EXISTS wifi_data (
 );"
 
 # Get the WiFi link quality and signal level
-WIFI_INFO=$(cat /proc/net/wireless | grep "$1" | awk '{print $3, $4}')
+WIFI_INFO=$(cat /proc/net/wireless | grep "$wireless" | awk '{print $3, $4}')
 
 if [ -n "$WIFI_INFO" ]; then
     LINK_QUALITY=$(echo "$WIFI_INFO" | awk '{print $1}')
