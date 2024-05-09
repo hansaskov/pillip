@@ -6,6 +6,9 @@ SSID="EMLI-TEAM-15"
 # Wi-Fi Password
 PASSWORD="pillip15"
 
+#ssh key (remember to replace with your own)
+ssh_key="~/.ssh/id_ed25519_rpi"
+
 # Sync time with drone
 sync_time() {
     echo "Syncing time with PC..."
@@ -15,7 +18,7 @@ sync_time() {
     date=$(date "+%Y-%m-%d %H:%M:%S")
     echo $date
     
-    ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "~/pillip/raspberry/bin/sync_time.sh $date"
+    ssh -i $ssh_key pi@10.0.0.10 "~/pillip/raspberry/bin/sync_time.sh $date"
 }
 
 clone_photos() {
@@ -24,9 +27,9 @@ clone_photos() {
     last_made_folder=$(ls -t $folderDrone | head -1)
     newest_folder="$folderDrone"/"$last_made_folder"
 
-    jsonData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos/$last_made_folder | grep -i json") # json from camera
-    photoData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos/$last_made_folder | grep -i jpg") # photos from camera
-    folderData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos -type d | grep -i 2") # Folders from camera (only works consistently until year 3000)
+    jsonData=$(ssh -i $ssh_key pi@10.0.0.10 "find ~/photos/$last_made_folder | grep -i json") # json from camera
+    photoData=$(ssh -i $ssh_key pi@10.0.0.10 "find ~/photos/$last_made_folder | grep -i jpg") # photos from camera
+    folderData=$(ssh -i $ssh_key pi@10.0.0.10 "find ~/photos -type d | grep -i 2") # Folders from camera (only works consistently until year 3000)
 
     if [ ! -d "$folderDrone" ]; then
         echo "Error: Folder Drone does not exist."
@@ -41,7 +44,7 @@ clone_photos() {
         # Check if the file exists in the newest folder
         if [ ! -e "$newest_folder/$photoName" ]; then
             # Move the file from folder Pi to folder Drone
-            scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$photoPi" "$newest_folder"
+            scp -i $ssh_key "pi@10.0.0.10:$photoPi" "$newest_folder"
             echo "Copied $photoName to $newest_folder"
         fi
     done <<< "$photoData"
@@ -52,7 +55,7 @@ clone_photos() {
         # Check if the file exists in the newest folder
         if [ ! -e "$newest_folder/$jsonName" ]; then
             # Move the file from folder Pi to folder Drone
-            scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$jsonPi" "$newest_folder"
+            scp -i $ssh_key "pi@10.0.0.10:$jsonPi" "$newest_folder"
             echo "Copied $jsoName to $newest_folder"
         fi
 
@@ -65,13 +68,13 @@ clone_photos() {
         # Check if the folder exists in folderDrone 
         if [ ! -d "$folderDrone/$folderName" ]; then
             # Move the folder from folderPi to folderDrone
-            scp -i ~/.ssh/id_ed25519_rpi -r "pi@10.0.0.10:$FolderPi" "$folderDrone"
+            scp -i $ssh_key -r "pi@10.0.0.10:$FolderPi" "$folderDrone"
             echo "Copied $folderName to $folderDrone"
         fi
     done <<< "$folderData"
 
     # adds to json files
-    jsonData=$(find $folderDrone | grep -i json) # json 
+    jsonDroneData=$(find $folderDrone | grep -i json) # json 
 
     while IFS= read -r jsonFile; do
         jsonName=$(basename "$jsonFile")
@@ -80,7 +83,7 @@ clone_photos() {
         # add drone id and epoch to json file
         output=$(jq ". += {\"Drone ID\":\"WILDDRONE-001\",\"Downloaded Seconds Epoch\":$epoc}" <<< cat $jsonFile)
 
-    done <<< "$jsonData"
+    done <<< "$jsonDroneData"
 }
 
 # Enable Wi-Fi device
