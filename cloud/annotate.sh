@@ -40,10 +40,12 @@ convert "$image_file" -resize 672x672 "$temp_file"
 encoded_image=$(base64 -w 0 "$temp_file")
 
 # Prepare the request payload
-payload="{\"model\": \"$model_name\", \"prompt\": \"What is in this picture?\", \"stream\": false}"
+payload="{\"model\": \"$model_name\", \"prompt\": \"What is in this picture?\",  \"images\": [\"$encoded_image\"],  \"stream\": false}"
+
+echo $payload
 
 # Call the OllaMa API with the base64-encoded image as a file
-response=$(curl -s -X POST -d "$payload" --data-binary "@$temp_file;base64" $ollama_hostname/api/generate)
+response=$(curl -s -X POST -d "$payload"  $ollama_hostname/api/generate)
 
 # Extract the response field from the JSON output
 api_response=$(echo "$response" | jq -r '.response')
