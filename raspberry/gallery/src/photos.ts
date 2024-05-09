@@ -11,48 +11,23 @@ export interface PhotoConfig {
     ISO: number
 }
 
+function parsePhotoConfig(contents: any) {
 
-function parsePhotoConfig(contents: any): PhotoConfig | null {
-    try {
-        const requiredFields = [
-            "File Name",
-            "Create Date",
-            "Create Seconds Epoch",
-            "Trigger",
-            "Subject Distance",
-            "Exposure Time",
-            "ISO",
-        ];
+    const photoConfig: PhotoConfig = {
+        fileName: contents["File Name"],
+        createDate: contents["Create Date"],
+        createSecondsEpoc: contents["Create Seconds Epoch"],
+        trigger: contents["Trigger"],
+        subjectDistance: contents["Subject Distance"],
+        exposureTime: contents["Exposure Time"],
+        ISO: contents["ISO"],
+      };
 
-        for (const field of requiredFields) {
-            if (!contents[field]) {
-                return null; // return null if any of the required fields are missing
-            }
-        }
+    return photoConfig
+} 
 
-        const photoConfig: PhotoConfig = {
-            fileName: contents["File Name"],
-            createDate: contents["Create Date"],
-            createSecondsEpoc: contents["Create Seconds Epoch"],
-            trigger: contents["Trigger"],
-            subjectDistance: contents["Subject Distance"],
-            exposureTime: contents["Exposure Time"],
-            ISO: contents["ISO"],
-        };
-
-        return photoConfig;
-    } catch (error) {
-        console.error(`Error parsing photo config: ${error}`);
-        return null;
-    }
-}
-
-export const groupPhotoConfigsByDate = (photoConfigs: (PhotoConfig | null)[]) => {
-
+export const groupPhotoConfigsByDate = (photoConfigs: PhotoConfig[]) => {
     return photoConfigs.reduce((groups, config) => {
-        if (config == null) {
-            return groups
-        }
         const [date] = config.createDate.split(" ");
         if (!groups[date]) {
             groups[date] = [];
@@ -75,15 +50,15 @@ export async function readPhotosFromPublicDirectory(directory: string) {
 
     const files = await readdir(directory, { recursive: true });
 
-    let photoConfigs = await Promise.all(
+    const photoConfigs = await Promise.all(
         files
             .filter(filePath => filePath.endsWith('.json'))
             .map(filepath => path.join(directory, filepath))
             .map(filePath => readPhotoConfig(filePath))
     );
 
-    photoConfigs = photoConfigs.filter(config => config != null)
-
+    // Sort images to show the newest first.
+    photoConfigs.sort((a, b) => b.createSecondsEpoc - a.createSecondsEpoc)
 
     return photoConfigs;
 }
