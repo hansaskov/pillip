@@ -1,4 +1,8 @@
 #!/bin/bash
+cd ~/pillip/raspberry
 
-~/pillip/raspberry/bin/take_photo_every_second.sh &
-bun run ~/pillip/raspberry/gallery/src/index.tsx &
+bin/take_photo_every_second.sh &
+bun run gallery/src/index.tsx &
+pico-driver/pico-driver.py &
+bin/wiper-controll.sh &
+bin/trigger_take_photo.sh
