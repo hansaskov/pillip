@@ -24,7 +24,7 @@ sync_time() {
 
 check_for_photos() {
     # Define the path of the folder
-    folderDrone="../../photos"
+    folderDrone="../photos"
 
     jsonData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos | grep -i json") # json from camera
     photoData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos | grep -i jpg") # photos from camera
@@ -54,6 +54,9 @@ check_for_photos() {
         if [ ! -e "$folderDrone/$jsonName" ]; then
             # Move the file from folder Pi to folder Drone
             scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$jsonPi" "$folderDrone"
+            epoc= date +%s
+            sed -i '$s/}/,\n"Drone ID":"WILDDRONE-001",}/' $jsoName
+            sed -i '$s/}/,\n"Downloaded Seconds Epoch":'$epoc'}/' $jsoName
             echo "Copied $jsoName to $folderDrone"
         fi
 
