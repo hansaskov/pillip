@@ -3,7 +3,7 @@ Description=wildcame stuf
 After=mosquitto.service
 
 [Service]
-Type=notify
+Type=simple
 ExecStart=/usr/sbin/emli.sh
 Restart=always
 
