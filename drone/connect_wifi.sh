@@ -24,41 +24,42 @@ sync_time() {
 
 check_for_photos() {
     # Define the path of the folder
-    folderDrone="../photos"
+    folderDrone="../../photos"
 
-    jsonData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos | grep -i json") # json from camera
-    photoData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos | grep -i jpg") # photos from camera
+    folderData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos -type d | grep -i 2") # Folders from camera (only works consistently until year 3000)
 
     if [ ! -d "$folderDrone" ]; then
         echo "Error: Folder Drone does not exist."
         exit 1
     fi
 
+    while IFS= read -r FolderPi; do
+    # Extract the folder name without the path
+    folderName=$(basename "$FolderPi")
+
+    # Check if the folder exists in folderDrone 
+    if [ ! -d "$folderDrone/$folderName" ]; then
+        # Move the folder from folderPi to folderDrone
+        scp -i ~/.ssh/id_ed25519_rpi -r "pi@10.0.0.10:$FolderPi" "$folderDrone"
+        echo "Copied $folderName to $folderDrone"
+    fi
+    done <<< "$folderData"
+
+
+    jsonData=$(find $folderDrone | grep -i json) # json 
+
+    echo $jsonData
+
+    while IFS= read -r jsonFile; do
+        jsonName=$(basename "$jsonFile")
+
+        echo $jsonName
     
-    # Loop through each file in camera
-    while IFS= read -r photoPi; do
-        # Extract the filename without the path
-        photoName=$(basename "$photoPi")
-        
-        # Check if the file exists in folder2
-        if [ ! -e "$folderDrone/$photoName" ]; then
-            # Move the file from folder Pi to folder Drone
-            scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$photoPi" "$folderDrone"
-            echo "Copied $photoName to $folderDrone"
-        fi
-    done <<< "$photoData"
-
-    while IFS= read -r jsonPi; do
-        jsonName=$(basename "$jsonPi")
-
-        if [ ! -e "$folderDrone/$jsonName" ]; then
-            # Move the file from folder Pi to folder Drone
-            scp -i ~/.ssh/id_ed25519_rpi "pi@10.0.0.10:$jsonPi" "$folderDrone"
-            epoc= date +%s
-            sed -i '$s/}/,\n"Drone ID":"WILDDRONE-001",}/' $jsoName
-            sed -i '$s/}/,\n"Downloaded Seconds Epoch":'$epoc'}/' $jsoName
-            echo "Copied $jsoName to $folderDrone"
-        fi
+        epoc=$(date +%s)
+        # add drone id and epoch to json file
+        output=$(jq ". += {\"Drone ID\":\"WILDDRONE-001\",\"Downloaded Seconds Epoch\":$epoc}" <<< cat $jsonFile)
+        echo $output
+        echo $output > $jsonFile
 
     done <<< "$jsonData"
 }
