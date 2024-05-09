@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ollama_hostname=http://192.168.0.48:11434
-
 # Check if the required arguments are provided
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <image_file> <model_name>"
@@ -9,6 +7,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 # Assign the provided arguments
+ollama_hostname=http://192.168.0.48:11434
 image_file="$1"
 model_name="$2"
 
@@ -20,7 +19,7 @@ fi
 
 # Check if ImageMagick is installed
 if ! command -v convert &> /dev/null; then
-    echo "Error: ImageMagick (convert) is not installed."
+    echo "Error: ImageMagick (convert) is not installed. \n sudo apt install imagemagick"
     exit 1
 fi
 
