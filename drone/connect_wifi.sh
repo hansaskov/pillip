@@ -6,10 +6,6 @@ SSID="EMLI-TEAM-15"
 # Wi-Fi Password
 PASSWORD="pillip15"
 
-# get user
-USER=$(whoami)
-echo "Current user: $USER"
-
 # Sync time with drone
 sync_time() {
     echo "Syncing time with PC..."
@@ -74,9 +70,10 @@ nmcli dev wifi rescan
 # Check if the desired Wi-Fi network is available
 SSID_AVAILABLE=$(nmcli dev wifi list | grep -c "$SSID")
 
-if [ $SSID_AVAILABLE -eq 0 ]; then
+while [ $SSID_AVAILABLE -eq 0 ]; do
     echo "Error: Wi-Fi network '$SSID' not found."
-    exit 1
+    nmcli dev wifi rescan
+    SSID_AVAILABLE=$(nmcli dev wifi list | grep -c "$SSID")
 fi
 
 # Connect to the Wi-Fi network
