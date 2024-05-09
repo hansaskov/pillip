@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Directory to search for JSON files
-dir="../photos"
+# Check if the required arguments are provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <photos_directory>, example ../photos"
+    exit 1
+fi
+
+dir="$1"
 
 # Check if the directory exists
 if [ -d "$dir" ]; then
