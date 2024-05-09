@@ -115,7 +115,7 @@ if [ $CONNECTED -gt 0 ]; then
     sync_time # syncs time on Pi with PC
     clone_photos
     while [ $CONNECTED -gt 0 ]; do
-        sh ./log_wifi.sh $
+        sh ./log_wifi.sh $interface_name
     done
 else
     echo "Error: Failed to connect to Wi-Fi network '$SSID'."
