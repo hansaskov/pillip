@@ -24,7 +24,7 @@ sync_time() {
 
 check_for_photos() {
     # Define the path of the folder
-    folderDrone="../../photos"
+    folderDrone="../photos"
 
     folderData=$(ssh -i ~/.ssh/id_ed25519_rpi pi@10.0.0.10 "find ~/photos -type d | grep -i 2") # Folders from camera (only works consistently until year 3000)
 
