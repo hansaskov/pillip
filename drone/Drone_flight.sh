@@ -116,6 +116,7 @@ if [ $CONNECTED -gt 0 ]; then
     clone_photos
     while [ $CONNECTED -gt 0 ]; do
         sh ./log_wifi.sh $interface_name
+        sleep 5s
     done
 else
     echo "Error: Failed to connect to Wi-Fi network '$SSID'."
