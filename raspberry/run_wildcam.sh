@@ -2,7 +2,10 @@
 cd /home/pi/pillip/raspberry
 
 bin/take_photo_every_second.sh &
-bun run gallery/src/index.tsx &
+cd gallery && bun run src/index.tsx &
 pico-driver/pico-driver.py &
 bin/wiper-controll.sh &
 bin/trigger_take_photo.sh
+
+
+
