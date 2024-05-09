@@ -13,7 +13,7 @@ if [ -d "$dir" ]; then
       if jq -e '. | has("annotation")' "$file" >/dev/null 2>&1; then
         echo "$file: The key 'annotation' exists."
       else
-        echo "$file: The key 'annotation' does not exist."
+        echo "$file: The key 'annotation' does not exist, starting annotation"
         #use the bash script annotate.sh and take the output and save in the json file in a new key called annotation?
         output=$(./annotate.sh ${file:0:-5}.jpg llava:13b)
         echo $output
