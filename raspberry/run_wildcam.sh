@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/pillip/raspberry
+cd /home/pi/pillip/raspberry
 
 bin/take_photo_every_second.sh &
 bun run gallery/src/index.tsx &
