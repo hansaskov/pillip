@@ -1,0 +1,13 @@
+{
+  "File Name": "143245_082.jpg",
+  "Create Date": "2024-05-09 14:32:40+01:00",
+  "Create Seconds Epoch": 1715261560.2,
+  "Trigger": "Motion",
+  "Subject Distance": 0.5488474204,
+  "Exposure Time": "1/278",
+  "ISO": 112,
+  "Annotation": {
+    "Source": "llama:13b",
+    "Test": "$output"
+  }
+}

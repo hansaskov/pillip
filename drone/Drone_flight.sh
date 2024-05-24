@@ -84,6 +84,7 @@ clone_photos() {
         output=$(jq ". += {\"Drone ID\":\"WILDDRONE-001\",\"Downloaded Seconds Epoch\":$epoc}" <<< cat $jsonFile)
 
     done <<< "$jsonDroneData"
+    
 }
 
 # Enable Wi-Fi device

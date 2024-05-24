@@ -1,0 +1,13 @@
+{
+  "File Name": "143455_353.jpg",
+  "Create Date": "2024-05-09 14:34:56+01:00",
+  "Create Seconds Epoch": 1715261696.2,
+  "Trigger": "External",
+  "Subject Distance": 0.5224660397,
+  "Exposure Time": "1/140",
+  "ISO": 112,
+  "Annotation": {
+    "Source": "llama:13b",
+    "Test": "$output"
+  }
+}
