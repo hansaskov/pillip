@@ -8,6 +8,6 @@
   "ISO": 112,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The picture shows a person holding an object that appears to be made of interconnected circles. These circles could be part of a light installation or decoration, given their illuminated nature and the way they cast shadows around them, indicating they are lit from within. It's difficult to determine exactly what the object is without additional context, but it does seem like something designed for visual interest or artistic expression."
   }
 }

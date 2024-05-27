@@ -8,6 +8,6 @@
   "ISO": 112,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The image shows a modern light fixture that resembles a cluster of flowers or a bouquet. The lights are designed to mimic the appearance of petals, creating a delicate and decorative effect. These types of lamps can be used for both functional lighting as well as an artistic centerpiece in interior design."
   }
 }

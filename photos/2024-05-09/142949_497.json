@@ -8,6 +8,6 @@
   "ISO": 114,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The image is not clear, but it appears to show a hand holding what might be a smartphone or another electronic device with a sleeve. The photo has been rotated and the angle is not ideal for making out specific details about the object being held."
   }
 }

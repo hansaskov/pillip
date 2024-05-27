@@ -8,6 +8,6 @@
   "ISO": 112,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The image appears to show a modern light fixture with an intricate design. It consists of multiple layers of what looks like paper or a similar material that has been creatively folded and arranged in a radial pattern around a central hole, possibly made from metal. This unique design creates a visual effect that might cast interesting shadows or reflections when illuminated by light. The style of the object suggests it could be used as a decorative piece or as a functional ceiling fixture."
   }
 }

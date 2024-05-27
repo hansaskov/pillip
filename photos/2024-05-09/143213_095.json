@@ -8,6 +8,6 @@
   "ISO": 112,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The picture shows a modern light fixture that appears to be made of interconnected, organic-looking bulbs or shapes. These are likely LED lights designed to create an interesting visual effect and provide illumination. The design is unique and seems to emanate from the center of the image, giving it a radial symmetry. The background is dark, which contrasts with the brightness of the light fixture."
   }
 }

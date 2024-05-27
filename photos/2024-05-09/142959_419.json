@@ -8,6 +8,6 @@
   "ISO": 114,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The image appears to be taken at night or in low light conditions, and there is a reflection of light on the surface. It's difficult to discern specific details without more context, but it seems like a close-up photograph with some sort of bright object or source casting a shadow."
   }
 }

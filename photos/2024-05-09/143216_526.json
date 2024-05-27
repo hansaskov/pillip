@@ -8,6 +8,6 @@
   "ISO": 112,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The image shows a person holding up a string of LED lights that are shaped like spheres. These light-up ornaments create an interesting and playful pattern as they catch the light. It appears to be taken in low light, possibly at night or during a dark indoor setting."
   }
 }

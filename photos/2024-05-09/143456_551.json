@@ -8,6 +8,6 @@
   "ISO": 114,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The picture shows a hand holding a light bulb with an unusual shape, which appears to be designed in a way that may resemble a cloud or a soft, flowing object. This is likely a LED bulb designed for decorative purposes, as its irregular shape is not typical for standard light bulbs meant for functional use. The design might be intended to serve as an ambient light source with a visually appealing and organic look."
   }
 }

@@ -8,6 +8,6 @@
   "ISO": 112,
   "Annotation": {
     "Source": "llama:13b",
-    "Test": "$output"
+    "Test": " The image shows a modern-style light fixture that resembles a flower or sunburst made of multiple interconnected pieces. It has an organic, perhaps artistic design with a combination of what appears to be white and possibly translucent materials giving it a delicate and unique appearance."
   }
 }
