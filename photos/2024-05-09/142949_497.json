@@ -6,8 +6,8 @@
   "Subject Distance": 0.2320724066,
   "Exposure Time": "1/70",
   "ISO": 114,
-  "Annotation": {
+  "annotation": {
     "Source": "llama:13b",
-    "Test": " The image is not clear, but it appears to show a hand holding what might be a smartphone or another electronic device with a sleeve. The photo has been rotated and the angle is not ideal for making out specific details about the object being held."
+    "Test": " The image appears to be a blurry photograph of an object, possibly a case or cover for some sort of electronic device. Due to the low resolution and angle of the shot, it's difficult to discern specific details about the object. It could be something like a laptop case, a smartphone case, or another similar item. The image does not provide enough clarity to give a precise description."
   }
 }

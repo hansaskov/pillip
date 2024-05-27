@@ -6,8 +6,8 @@
   "Subject Distance": 0.9250693802,
   "Exposure Time": "1/234",
   "ISO": 112,
-  "Annotation": {
+  "annotation": {
     "Source": "llama:13b",
-    "Test": " The picture shows a person holding an object that appears to be made of interconnected circles. These circles could be part of a light installation or decoration, given their illuminated nature and the way they cast shadows around them, indicating they are lit from within. It's difficult to determine exactly what the object is without additional context, but it does seem like something designed for visual interest or artistic expression."
+    "Test": " The image appears to be a composite of two different pictures placed side by side. On the left, there's an indistinct figure that seems to be holding a string of lights or possibly a necklace with round objects hanging from it, illuminated by the lights. On the right, there is a plain grey background which doesn't provide any additional context about the image. The overall composition of the image is unusual and doesn't convey a clear story or subject matter without more information."
   }
 }

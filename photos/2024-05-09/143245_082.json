@@ -6,8 +6,8 @@
   "Subject Distance": 0.5488474204,
   "Exposure Time": "1/278",
   "ISO": 112,
-  "Annotation": {
+  "annotation": {
     "Source": "llama:13b",
-    "Test": " The image shows a ceiling light that appears to be designed with an organic or flower-like shape. It has several layers of what looks like paper or fabric, possibly illuminated from within by LED lights, creating a warm and inviting ambiance. The design is quite intricate, with multiple points and curves that give it an abstract yet natural appearance."
+    "Test": " The image shows a modern lighting fixture that resembles an abstract, artistic piece. It consists of multiple layers or circles that create a concentric pattern around a central void, giving it the appearance of a flower or a sunburst. The design is sleek and contemporary, featuring what looks like paper or thin metal sheets in white or light-colored tones. This type of lighting fixture would typically be used for decorative purposes in modern interior spaces to create an interesting visual effect and provide ambient lighting."
   }
 }

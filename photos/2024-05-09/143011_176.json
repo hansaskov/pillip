@@ -6,8 +6,8 @@
   "Subject Distance": 0.5102040816,
   "Exposure Time": "1/278",
   "ISO": 112,
-  "Annotation": {
+  "annotation": {
     "Source": "llama:13b",
-    "Test": " The image shows a modern pendant light. It is designed with an intricate pattern that gives it a unique and decorative appearance, possibly using paper or other materials to create the design elements. The light fixture has multiple layers that branch out from a central point, creating a kind of organic-looking structure that would provide ample illumination for the area below it. It's not currently lit in this image, which is why the details are subtle."
+    "Test": " The picture shows a modern light fixture. It appears to be a ceiling lamp with an intricate, possibly artistic design that resembles the petals of a flower or a radiant sunburst pattern made up of numerous thin and light-reflecting elements. This type of light is often used for its contemporary look and the ambient light it provides."
   }
 }

@@ -6,8 +6,8 @@
   "Subject Distance": 0.5425935974,
   "Exposure Time": "1/140",
   "ISO": 112,
-  "Annotation": {
+  "annotation": {
     "Source": "llama:13b",
-    "Test": " The picture shows a modern light fixture that appears to be made of interconnected, organic-looking bulbs or shapes. These are likely LED lights designed to create an interesting visual effect and provide illumination. The design is unique and seems to emanate from the center of the image, giving it a radial symmetry. The background is dark, which contrasts with the brightness of the light fixture."
+    "Test": " The image shows an interesting light fixture that resembles a flower. It is composed of multiple curved, translucent tubes or rods arranged in a circular pattern around a central point. This design creates a unique and eye-catching focal point. The light seems to be diffused through the structure, giving it an ethereal appearance."
   }
 }
