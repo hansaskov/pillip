@@ -8,8 +8,8 @@
   "ISO": 200,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows an air vent on a ceiling, likely located inside a building. There is also some text or branding visible in the center of the vent. The background appears to be made of metallic tiles, suggesting an industrial or modern architectural setting."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " In the picture, there is a ventilation grille on a ceiling. The grille has a circular design with slats or perforations that would allow air to pass through while filtering out larger particles or objects from entering the space below. The background appears to be an interior space, possibly a room with a metallic wall and ceiling, but there isn't enough detail to determine the specific use of the room or the purpose of the ventilation system."
   }
 }

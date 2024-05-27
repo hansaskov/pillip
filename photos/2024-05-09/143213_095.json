@@ -6,8 +6,8 @@
   "Subject Distance": 0.5425935974,
   "Exposure Time": "1/140",
   "ISO": 112,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows an interesting light fixture that resembles a flower. It is composed of multiple curved, translucent tubes or rods arranged in a circular pattern around a central point. This design creates a unique and eye-catching focal point. The light seems to be diffused through the structure, giving it an ethereal appearance."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows a light fixture, specifically an artistic lamp that appears to be made of multiple interconnected pieces. These pieces could resemble petals or leaves, giving the lamp an organic and natural appearance. The design is abstract and modern, with the central hole allowing for light to pass through the structure."
   }
 }

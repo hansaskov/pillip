@@ -6,8 +6,8 @@
   "Subject Distance": 0.5488474204,
   "Exposure Time": "1/278",
   "ISO": 112,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows a modern lighting fixture that resembles an abstract, artistic piece. It consists of multiple layers or circles that create a concentric pattern around a central void, giving it the appearance of a flower or a sunburst. The design is sleek and contemporary, featuring what looks like paper or thin metal sheets in white or light-colored tones. This type of lighting fixture would typically be used for decorative purposes in modern interior spaces to create an interesting visual effect and provide ambient lighting."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows a decorative lighting fixture, which appears to be a modern and artistic piece. It consists of numerous paper-like elements that are arranged in a symmetrical pattern around a central void or hole. This kind of sculptural lighting is often used as an accent piece for interior design to add visual interest and ambient lighting."
   }
 }

@@ -8,8 +8,8 @@
   "ISO": 112,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image is somewhat blurry, but it appears to show an indoor setting with a person seated. The person seems to be wearing dark clothing and has short hair. There's a ventilation grate on the ceiling, and the lighting suggests an artificial environment. It's difficult to discern more specific details due to the image quality."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image appears to be blurry and lacks clarity, but I can make out that it features a person taking a selfie. The individual seems to be indoors, possibly in an office or a public building with fluorescent lighting and what looks like a ventilation grate on the ceiling. The focus of the image is not sharp, which makes it challenging to provide more detailed information about the surroundings."
   }
 }

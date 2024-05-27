@@ -8,8 +8,8 @@
   "ISO": 113,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " In the picture, there appears to be a ceiling with some type of fixture or structure on it. There's also a person's hand holding up what looks like a small object or tool in front of the ceiling fixture. The image is somewhat blurry and taken from an angle that makes it difficult to discern more details about the setting or context."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows the interior of a vehicle, possibly an airplane or a bus. There is a ceiling and what appears to be overhead storage compartments. However, the photo is taken from an angle that obscures many details, such as passengers or additional features like seat rows or lighting fixtures."
   }
 }

@@ -6,8 +6,8 @@
   "Subject Distance": 0.2320724066,
   "Exposure Time": "1/70",
   "ISO": 114,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image appears to be a blurry photograph of an object, possibly a case or cover for some sort of electronic device. Due to the low resolution and angle of the shot, it's difficult to discern specific details about the object. It could be something like a laptop case, a smartphone case, or another similar item. The image does not provide enough clarity to give a precise description."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows a person holding what appears to be an electronic device, possibly a smartphone or a tablet. The screen of the device is facing the camera, but it's too blurry to see any content displayed on it. The lighting in the photo suggests indoor conditions, and the focus is not sharp, which makes it difficult to discern finer details."
   }
 }

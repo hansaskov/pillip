@@ -8,8 +8,8 @@
   "ISO": 200,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows an interior space with a ceiling that appears to be made of metal panels or tiles. There is a ventilation grille located near the center of the ceiling, and it looks like there might be some type of device or sensor in the middle of the panel below the vent. The lighting in the room is low, contributing to a subdued atmosphere. The image has been rotated 90 degrees clockwise from its original orientation."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows a close-up of what appears to be a ventilation system in an interior space, possibly a ceiling or wall panel. There is a circular design at the center of the panel which could indicate a decorative element or a functional part of the ventilation system. The lighting in the room casts shadows on the panel, suggesting it's an indoor setting with artificial light."
   }
 }

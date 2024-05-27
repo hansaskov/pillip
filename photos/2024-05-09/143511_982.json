@@ -7,11 +7,7 @@
   "Exposure Time": "1/281",
   "ISO": 112,
   "Annotation": {
-    "Source": "llama:13b",
-    "Test": " The image appears to show a modern light fixture with an intricate design. It consists of multiple layers of what looks like paper or a similar material that has been creatively folded and arranged in a radial pattern around a central hole, possibly made from metal. This unique design creates a visual effect that might cast interesting shadows or reflections when illuminated by light. The style of the object suggests it could be used as a decorative piece or as a functional ceiling fixture."
-  },
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows a modern-looking pendant light fixture. It appears to be designed with an organic, almost sculptural form, featuring multiple layers that create a complex shape. These layers are likely made of paper or a similar thin material and are possibly illuminated by the central circular source, which could be an LED bulb. The design is artistic and gives off a contemporary vibe."
+    "Source": "llava:13b",
+    "Test": " The image shows an interesting light fixture. It appears to be a modern, artistic piece designed in the shape of a flower or possibly some kind of natural formation. The light is composed of multiple layers that could be made from paper or a similar material with intricate cutouts and patterns that create an abstract design. This type of lamp would typically be used for decorative purposes in interior spaces, adding an artistic and unique touch to the ambiance."
   }
 }

@@ -8,8 +8,8 @@
   "ISO": 113,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image is quite blurry, but it appears to show a ceiling with some lighting fixtures or sprinkler heads. There's also a reflection of a light source in the photo that could be from a camera flash or another light source above the person taking the photo. Due to the low resolution and quality of the image, it's difficult to provide more specific details."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows the ceiling of an indoor space, likely a room or hallway. There is a square opening with a light fixture in it, and a black object that appears to be a clock hanging on the wall near the ceiling. The photo seems to have been taken from below, looking up at the ceiling and fixtures, which makes the clock appear as if it's floating or upside down due to perspective."
   }
 }

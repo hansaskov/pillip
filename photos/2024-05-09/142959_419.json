@@ -6,8 +6,8 @@
   "Subject Distance": 0.1577287066,
   "Exposure Time": "1/71",
   "ISO": 114,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image is blurry and the lighting is poor, but it appears to be taken indoors with a camera flash reflecting off something in the foreground. Due to the low resolution and quality of the photo, specific details are difficult to discern. It could be an object in motion or a scene with some activity happening at night or in low light conditions. The reflection on the surface suggests it might be a glass window or similar reflective material."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image appears to be somewhat blurry, making it difficult to discern specific details. However, there seems to be a bright light source in the foreground that is casting shadows on a surface or object in the background. It might be an outdoor scene where the sun or another strong light source is creating interesting shadows and reflections. The image quality does not allow for clear interpretation of the objects involved."
   }
 }

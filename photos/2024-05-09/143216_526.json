@@ -6,8 +6,8 @@
   "Subject Distance": 0.9250693802,
   "Exposure Time": "1/234",
   "ISO": 112,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows a close-up of a string of lights that look like glowing pumpkins or possibly some kind of spherical lamps. These lights are illuminated and emit a warm, yellowish-orange light. There is also the shadow of a hand holding these lights on the surface beneath them, suggesting that they are being held by someone out of frame. The focus is on the string of lights, which creates a soft glow against the darker background."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows a person holding a circular object that appears to be made up of numerous small, round items connected together. This could be an artistic piece or a decorative item. The circular structure is illuminated from within, and the lighting casts shadows on the surface and possibly the surrounding environment."
   }
 }

@@ -8,8 +8,8 @@
   "ISO": 200,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows an indoor space with a white ceiling. There is one visible object on the ceiling, which appears to be a circular light or ventilation system. The rest of the room is not clearly distinguishable due to the low resolution and angle of the photo."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows an interior wall with tiles and a small circular object in the center. It appears to be a ceiling fixture or vent, often used for air circulation or as part of a lighting system."
   }
 }

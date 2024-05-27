@@ -6,8 +6,8 @@
   "Subject Distance": 0.5107252298,
   "Exposure Time": "1/137",
   "ISO": 112,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The image shows a modern, stylish pendant light fixture with a unique design. It appears to be made of multiple white components that have been shaped and connected in a way that gives the impression of a flower or an abstract floral pattern. The lighting effect is such that it casts a soft glow from within its structure. This type of lighting would likely be used for decorative purposes, possibly in a modern home or commercial space to add visual interest and provide ambient illumination."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The picture shows a modern pendant light fixture. It appears to be designed with an organic shape, possibly resembling a flower or a circular pattern of petals, which creates an interesting visual effect when lit up. The light fixture seems to have multiple layers and could feature LED lights that would shine through the gaps in the structure, providing both ambient and accent lighting for the space it is placed in."
   }
 }

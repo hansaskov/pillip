@@ -8,8 +8,8 @@
   "ISO": 113,
   "Drone ID": "WILDDRONE-001",
   "Downloaded Seconds Epoch": 1715256071,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The picture appears to be a bit blurry and taken at an angle, making it difficult to provide a detailed description. It seems like a person is holding a device that has a screen on it. However, the details of what's shown on the screen or the context of the situation are not clear due to the quality of the image."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " In the picture, there's a person from the waist up. They are facing towards the ceiling where there appears to be an emergency exit sign mounted on a panel. The lighting in the room is dim and there isn't much detail visible due to the low light conditions."
   }
 }

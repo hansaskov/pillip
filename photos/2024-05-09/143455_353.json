@@ -6,8 +6,8 @@
   "Subject Distance": 0.5224660397,
   "Exposure Time": "1/140",
   "ISO": 112,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The picture shows a modern light fixture with an intricate design. It appears to be made up of multiple intertwined metal rods or tubes that create a three-dimensional sculpture that glows from within, possibly emitting light. The design is quite organic and resembles the form of a flower or a star. This type of lighting can serve as both an artistic statement and a functional fixture for providing illumination."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The image shows a light fixture that appears to be made up of numerous small, cylindrical lights connected in a radial pattern. This design gives the impression of an organic or flower-like shape at the center, surrounded by smaller lights that spread out from the core like petals. The lights are illuminated and cast a soft glow on the surrounding area, which is darkened to highlight the light fixture as the focal point of the image."
   }
 }

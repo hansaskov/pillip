@@ -6,8 +6,8 @@
   "Subject Distance": 0.5102040816,
   "Exposure Time": "1/278",
   "ISO": 112,
-  "annotation": {
-    "Source": "llama:13b",
-    "Test": " The picture shows a modern light fixture. It appears to be a ceiling lamp with an intricate, possibly artistic design that resembles the petals of a flower or a radiant sunburst pattern made up of numerous thin and light-reflecting elements. This type of light is often used for its contemporary look and the ambient light it provides."
+  "Annotation": {
+    "Source": "llava:13b",
+    "Test": " The picture shows an artistic light fixture that resembles a cluster of white paper lanterns. The lanterns appear to be intricately folded or cut, creating a complex and visually interesting pattern. This type of lighting is often used for its unique design and the way it diffuses light throughout the space in which it's placed."
   }
 }
