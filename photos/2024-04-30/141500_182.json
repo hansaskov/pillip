@@ -1,1 +1,15 @@
-{ "File Name": "141500_182.jpg", "Create Date": "2024-04-30 14:15:01+01:00", "Create Seconds Epoch": 1714482901.2, "Trigger": "External", "Subject Distance": 0.5112474438, "Exposure Time": "1/96", "ISO": 112, "Drone ID": "WILDDRONE-001", "Downloaded Seconds Epoch": 1715256071 }
+{
+  "File Name": "141500_182.jpg",
+  "Create Date": "2024-04-30 14:15:01+01:00",
+  "Create Seconds Epoch": 1714482901.2,
+  "Trigger": "External",
+  "Subject Distance": 0.5112474438,
+  "Exposure Time": "1/96",
+  "ISO": 112,
+  "Drone ID": "WILDDRONE-001",
+  "Downloaded Seconds Epoch": 1715256071,
+  "annotation": {
+    "Source": "llama:13b",
+    "Test": " The image is somewhat blurry, but it appears to show an indoor setting with a person seated. The person seems to be wearing dark clothing and has short hair. There's a ventilation grate on the ceiling, and the lighting suggests an artificial environment. It's difficult to discern more specific details due to the image quality."
+  }
+}

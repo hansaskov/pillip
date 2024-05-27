@@ -1,1 +1,15 @@
-{ "File Name": "141225_751.jpg", "Create Date": "2024-04-23 14:12:26+01:00", "Create Seconds Epoch": 1713877946.2, "Trigger": "Motion", "Subject Distance": 1, "Exposure Time": "1/23", "ISO": 200, "Drone ID": "WILDDRONE-001", "Downloaded Seconds Epoch": 1715256071 }
+{
+  "File Name": "141225_751.jpg",
+  "Create Date": "2024-04-23 14:12:26+01:00",
+  "Create Seconds Epoch": 1713877946.2,
+  "Trigger": "Motion",
+  "Subject Distance": 1,
+  "Exposure Time": "1/23",
+  "ISO": 200,
+  "Drone ID": "WILDDRONE-001",
+  "Downloaded Seconds Epoch": 1715256071,
+  "annotation": {
+    "Source": "llama:13b",
+    "Test": " The image shows an indoor space with a white ceiling. There is one visible object on the ceiling, which appears to be a circular light or ventilation system. The rest of the room is not clearly distinguishable due to the low resolution and angle of the photo."
+  }
+}

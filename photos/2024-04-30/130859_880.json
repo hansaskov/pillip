@@ -1,1 +1,15 @@
-{ "File Name": "130859_880.jpg", "Create Date": "2024-04-30 13:08:57+01:00", "Create Seconds Epoch": 1714478937.2, "Trigger": "Motion", "Subject Distance": 0.6887052342, "Exposure Time": "1/36", "ISO": 113, "Drone ID": "WILDDRONE-001", "Downloaded Seconds Epoch": 1715256071 }
+{
+  "File Name": "130859_880.jpg",
+  "Create Date": "2024-04-30 13:08:57+01:00",
+  "Create Seconds Epoch": 1714478937.2,
+  "Trigger": "Motion",
+  "Subject Distance": 0.6887052342,
+  "Exposure Time": "1/36",
+  "ISO": 113,
+  "Drone ID": "WILDDRONE-001",
+  "Downloaded Seconds Epoch": 1715256071,
+  "annotation": {
+    "Source": "llama:13b",
+    "Test": " In the picture, there appears to be a ceiling with some type of fixture or structure on it. There's also a person's hand holding up what looks like a small object or tool in front of the ceiling fixture. The image is somewhat blurry and taken from an angle that makes it difficult to discern more details about the setting or context."
+  }
+}

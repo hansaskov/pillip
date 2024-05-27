@@ -1,1 +1,15 @@
-{ "File Name": "130835_236.jpg", "Create Date": "2024-04-30 13:08:32+01:00", "Create Seconds Epoch": 1714478912.2, "Trigger": "Motion", "Subject Distance": 0.637755102, "Exposure Time": "1/35", "ISO": 113, "Drone ID": "WILDDRONE-001", "Downloaded Seconds Epoch": 1715256071 }
+{
+  "File Name": "130835_236.jpg",
+  "Create Date": "2024-04-30 13:08:32+01:00",
+  "Create Seconds Epoch": 1714478912.2,
+  "Trigger": "Motion",
+  "Subject Distance": 0.637755102,
+  "Exposure Time": "1/35",
+  "ISO": 113,
+  "Drone ID": "WILDDRONE-001",
+  "Downloaded Seconds Epoch": 1715256071,
+  "annotation": {
+    "Source": "llama:13b",
+    "Test": " The image is quite blurry, but it appears to show a ceiling with some lighting fixtures or sprinkler heads. There's also a reflection of a light source in the photo that could be from a camera flash or another light source above the person taking the photo. Due to the low resolution and quality of the image, it's difficult to provide more specific details."
+  }
+}

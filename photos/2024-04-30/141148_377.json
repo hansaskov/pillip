@@ -1,1 +1,15 @@
-{ "File Name": "141148_377.jpg", "Create Date": "2024-04-30 14:11:49+01:00", "Create Seconds Epoch": 1714482709.2, "Trigger": "External", "Subject Distance": 0.7547169811, "Exposure Time": "1/31", "ISO": 200, "Drone ID": "WILDDRONE-001", "Downloaded Seconds Epoch": 1715256071 }
+{
+  "File Name": "141148_377.jpg",
+  "Create Date": "2024-04-30 14:11:49+01:00",
+  "Create Seconds Epoch": 1714482709.2,
+  "Trigger": "External",
+  "Subject Distance": 0.7547169811,
+  "Exposure Time": "1/31",
+  "ISO": 200,
+  "Drone ID": "WILDDRONE-001",
+  "Downloaded Seconds Epoch": 1715256071,
+  "annotation": {
+    "Source": "llama:13b",
+    "Test": " The image shows an interior space with a ceiling that appears to be made of metal panels or tiles. There is a ventilation grille located near the center of the ceiling, and it looks like there might be some type of device or sensor in the middle of the panel below the vent. The lighting in the room is low, contributing to a subdued atmosphere. The image has been rotated 90 degrees clockwise from its original orientation."
+  }
+}

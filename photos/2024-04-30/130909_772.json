@@ -1,1 +1,15 @@
-{ "File Name": "130909_772.jpg", "Create Date": "2024-04-30 13:09:07+01:00", "Create Seconds Epoch": 1714478947.2, "Trigger": "Motion", "Subject Distance": 0.7215007215, "Exposure Time": "1/36", "ISO": 113, "Drone ID": "WILDDRONE-001", "Downloaded Seconds Epoch": 1715256071 }
+{
+  "File Name": "130909_772.jpg",
+  "Create Date": "2024-04-30 13:09:07+01:00",
+  "Create Seconds Epoch": 1714478947.2,
+  "Trigger": "Motion",
+  "Subject Distance": 0.7215007215,
+  "Exposure Time": "1/36",
+  "ISO": 113,
+  "Drone ID": "WILDDRONE-001",
+  "Downloaded Seconds Epoch": 1715256071,
+  "annotation": {
+    "Source": "llama:13b",
+    "Test": " The picture appears to be a bit blurry and taken at an angle, making it difficult to provide a detailed description. It seems like a person is holding a device that has a screen on it. However, the details of what's shown on the screen or the context of the situation are not clear due to the quality of the image."
+  }
+}
