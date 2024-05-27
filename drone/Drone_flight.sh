@@ -82,6 +82,7 @@ clone_photos() {
         epoc=$(date +%s)
         # add drone id and epoch to json file
         output=$(jq ". += {\"Drone ID\":\"WILDDRONE-001\",\"Downloaded Seconds Epoch\":$epoc}" <<< cat $jsonFile)
+        echo $output > $jsonFile
 
     done <<< "$jsonDroneData"
     
