@@ -9,6 +9,7 @@ This project involves a sophisticated system designed to capture, process, and s
 2. **Raspberry Pi Pico**: Monitors a rain sensor and controls a servo-operated wiper to keep the camera lens clear.
 3. **ESP8266 Module**: Acts as a trigger for capturing photos when animals activate the pressure plate.
 4. **Drone Integration**: Connects to the camera via WiFi, securely transfers photos and metadata, and uploads them to the cloud for processing.
+5. **Cloud Processing**: Annotates and processes the captured photos using a large language model (LLM) to provide detailed descriptions and metadata.
 
 ### Directory Structure
 ```plaintext
